@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Shirt, Gem, Watch, ShoppingBag, UtensilsCrossed } from 'lucide-react'
 import { categories } from '@/lib/data'
 
-const ICONS: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
+const ICONS: Record<string, React.ElementType> = {
   Shirt, Gem, Watch, ShoppingBag, UtensilsCrossed,
 }
 
