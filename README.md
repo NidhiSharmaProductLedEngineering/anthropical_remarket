@@ -3,7 +3,7 @@
 AI-powered marketplace for pre-loved fashion, jewelry, watches, and more. Built for the UAE market.
 
 ## Live Demo
-https://remarket-one.vercel.app
+[https://remarket-one.vercel.app](https://anthropical-remarket.vercel.app/)
 
 ## Stack
 - **Next.js 14** (App Router)
