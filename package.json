@@ -7,15 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "embed": "tsx scripts/generate-embeddings.ts"
+    "embed": "tsx scripts/generate-embeddings.ts",
+    "db:setup": "tsx scripts/setup-db.ts"
   },
   "dependencies": {
-    "next": "14.2.3",
+    "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18",
     "framer-motion": "^11.2.10",
     "lucide-react": "^0.383.0",
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.1",
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -26,6 +28,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "tsx": "^4.7.0",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "@types/pg": "^8.11.10"
   }
 }
