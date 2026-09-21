@@ -1,15 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Search, SlidersHorizontal, X } from 'lucide-react'
+import { Search, SlidersHorizontal, X, Sparkles } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ProductCard from '@/components/ProductCard'
-import { allListings, categories } from '@/lib/data'
+import { allListings, categories, type Listing } from '@/lib/data'
 
 const CONDITIONS = ['All','Excellent','Very Good','Good']
 const SORT_OPTIONS = ['Newest','Price: Low to High','Price: High to Low','Most Popular']
+const SEARCH_DEBOUNCE_MS = 350
 
 export default function BrowsePage() {
   const [search,    setSearch]    = useState('')
@@ -18,10 +19,59 @@ export default function BrowsePage() {
   const [sort,      setSort]      = useState('Newest')
   const [showFilters, setShowFilters] = useState(false)
 
-  const filtered = allListings.filter(l => {
-    const matchSearch = l.title.toLowerCase().includes(search.toLowerCase())
-    const matchCat    = category === 'all' || l.category.toLowerCase().includes(category.toLowerCase())
-    const matchCond   = condition === 'All' || l.condition === condition
+  // Semantic search state — null means "no semantic results yet, use keyword match"
+  const [semanticResults, setSemanticResults] = useState<Listing[] | null>(null)
+  const [semanticLoading, setSemanticLoading] = useState(false)
+  const [usingSemantic, setUsingSemantic] = useState(false)
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>()
+
+  useEffect(() => {
+    clearTimeout(debounceRef.current)
+
+    if (!search.trim()) {
+      setSemanticResults(null)
+      setUsingSemantic(false)
+      return
+    }
+
+    debounceRef.current = setTimeout(async () => {
+      setSemanticLoading(true)
+      try {
+        const res = await fetch('/api/search', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: search }),
+        })
+        const data = await res.json()
+
+        if (data.fallback || !data.results?.length) {
+          // No API key configured, or nothing cached — quietly fall back
+          // to the plain substring filter below.
+          setSemanticResults(null)
+          setUsingSemantic(false)
+        } else {
+          setSemanticResults(data.results)
+          setUsingSemantic(true)
+        }
+      } catch {
+        setSemanticResults(null)
+        setUsingSemantic(false)
+      } finally {
+        setSemanticLoading(false)
+      }
+    }, SEARCH_DEBOUNCE_MS)
+
+    return () => clearTimeout(debounceRef.current)
+  }, [search])
+
+  const base = usingSemantic && semanticResults ? semanticResults : allListings
+
+  const filtered = base.filter(l => {
+    const matchSearch = usingSemantic
+      ? true // semantic ranking already handled relevance
+      : l.title.toLowerCase().includes(search.toLowerCase())
+    const matchCat  = category === 'all' || l.category.toLowerCase().includes(category.toLowerCase())
+    const matchCond = condition === 'All' || l.condition === condition
     return matchSearch && matchCat && matchCond
   })
 
@@ -94,11 +144,17 @@ export default function BrowsePage() {
                 <Search size={16} color="#7A6055" style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)' }} />
                 <input
                   type="text"
-                  placeholder="Search treasures..."
+                  placeholder="Try 'elegant vintage jewelry' or 'something for a formal event'..."
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  style={{ width: '100%', padding: '10px 12px 10px 38px', border: '1.5px solid #EDE8E2', borderRadius: 9, background: '#FFFFFF', fontFamily: 'DM Sans', fontSize: 13, color: '#2C1A0E', outline: 'none' }}
+                  style={{ width: '100%', padding: '10px 96px 10px 38px', border: '1.5px solid #EDE8E2', borderRadius: 9, background: '#FFFFFF', fontFamily: 'DM Sans', fontSize: 13, color: '#2C1A0E', outline: 'none' }}
                 />
+                {(semanticLoading || usingSemantic) && (
+                  <div style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px', borderRadius: 20, background: usingSemantic ? '#F5DDD3' : 'transparent', fontFamily: 'DM Sans', fontSize: 11, fontWeight: 500, color: '#C4663A' }}>
+                    <Sparkles size={12} />
+                    {semanticLoading ? 'Thinking...' : 'AI search'}
+                  </div>
+                )}
               </div>
               <select value={sort} onChange={e => setSort(e.target.value)}
                 style={{ padding: '10px 14px', border: '1.5px solid #EDE8E2', borderRadius: 9, background: '#FFFFFF', fontFamily: 'DM Sans', fontSize: 13, color: '#2C1A0E', cursor: 'pointer', outline: 'none' }}
