@@ -8,8 +8,8 @@
 
 CREATE EXTENSION IF NOT EXISTS vector;
 
-CREATE TABLE listings (
-  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+CREATE TABLE IF NOT EXISTS listings (
+  id          TEXT PRIMARY KEY,
   title       TEXT NOT NULL,
   price       NUMERIC(10, 2) NOT NULL,
   currency    TEXT NOT NULL DEFAULT 'Dhs',
@@ -26,8 +26,10 @@ CREATE TABLE listings (
 
 -- Approximate nearest-neighbor index for fast cosine similarity search
 -- at scale. IVFFlat is fine up to ~1M rows; HNSW is the upgrade path
--- beyond that.
-CREATE INDEX listings_embedding_idx ON listings
+-- beyond that. At the current listing count (dozens, not millions) a
+-- plain sequential scan is actually fine — this index is here so the
+-- schema doesn't need to change when the catalog grows.
+CREATE INDEX IF NOT EXISTS listings_embedding_idx ON listings
   USING ivfflat (embedding vector_cosine_ops)
   WITH (lists = 100);
 

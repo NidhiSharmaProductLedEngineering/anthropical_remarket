@@ -19,6 +19,27 @@ export default function BrowsePage() {
   const [sort,      setSort]      = useState('Newest')
   const [showFilters, setShowFilters] = useState(false)
 
+  // Listings source: static array renders instantly on first paint, then
+  // gets replaced by the Postgres-backed result once /api/listings
+  // responds. If no database is configured, /api/listings itself returns
+  // the static array, so this just becomes a no-op refresh.
+  const [listings, setListings] = useState<Listing[]>(allListings)
+  const [listingsSource, setListingsSource] = useState<'static' | 'postgres'>('static')
+
+  useEffect(() => {
+    fetch('/api/listings')
+      .then(res => res.json())
+      .then(data => {
+        if (data.listings?.length) {
+          setListings(data.listings)
+          setListingsSource(data.source === 'postgres' ? 'postgres' : 'static')
+        }
+      })
+      .catch(() => {
+        // Network hiccup — static listings already rendered, nothing to do.
+      })
+  }, [])
+
   // Semantic search state — null means "no semantic results yet, use keyword match"
   const [semanticResults, setSemanticResults] = useState<Listing[] | null>(null)
   const [semanticLoading, setSemanticLoading] = useState(false)
@@ -64,7 +85,7 @@ export default function BrowsePage() {
     return () => clearTimeout(debounceRef.current)
   }, [search])
 
-  const base = usingSemantic && semanticResults ? semanticResults : allListings
+  const base = usingSemantic && semanticResults ? semanticResults : listings
 
   const filtered = base.filter(l => {
     const matchSearch = usingSemantic
