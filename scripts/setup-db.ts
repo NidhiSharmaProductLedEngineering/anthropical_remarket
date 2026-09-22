@@ -14,7 +14,11 @@
  * the "sync listings + re-embed" command whenever lib/data.ts changes.
  */
 
-import 'dotenv/config'
+import dotenv from 'dotenv'
+// dotenv only loads a file literally named ".env" by default — it doesn't
+// know about Next.js's ".env.local" convention. Load that explicitly so
+// this script sees the same variables the Next.js app does.
+dotenv.config({ path: '.env.local' })
 import { readFileSync } from 'fs'
 import path from 'path'
 import { getPool } from '../lib/db'

@@ -10,7 +10,8 @@
  * a JSON file — see db/schema.sql for that shape.
  */
 
-import 'dotenv/config'
+import dotenv from 'dotenv'
+dotenv.config({ path: '.env.local' })
 import { writeFileSync } from 'fs'
 import path from 'path'
 import { allListings, type Listing } from '../lib/data'
