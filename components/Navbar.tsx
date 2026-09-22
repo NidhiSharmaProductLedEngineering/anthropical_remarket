@@ -1,13 +1,13 @@
 'use client'
 
-'use client'
-
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <header style={{ background: '#FFFFFF', borderBottom: '1px solid #EDE8E2', position: 'sticky', top: 0, zIndex: 50 }}>
@@ -38,9 +38,17 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           {/* Icons */}
           <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-            {[Search, Heart, ShoppingBag].map((Icon, i) => (
-              <button key={i} style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'none', border: 'none', cursor: 'pointer', color: '#2C1A0E', borderRadius: 8, transition: 'background .15s' }}
-                onMouseOver={e => { (e.currentTarget as HTMLElement).style.background = '#F5F0EA' }}
+            {[
+              { Icon: Search, label: 'Search', onClick: () => router.push('/browse') },
+              { Icon: Heart, label: 'Wishlist', onClick: undefined },
+              { Icon: ShoppingBag, label: 'Cart', onClick: undefined },
+            ].map(({ Icon, label, onClick }, i) => (
+              <button
+                key={i}
+                aria-label={label}
+                onClick={onClick}
+                style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'none', border: 'none', cursor: onClick ? 'pointer' : 'default', color: '#2C1A0E', borderRadius: 8, transition: 'background .15s', opacity: onClick ? 1 : 0.45 }}
+                onMouseOver={e => { if (onClick) (e.currentTarget as HTMLElement).style.background = '#F5F0EA' }}
                 onMouseOut={e =>  { (e.currentTarget as HTMLElement).style.background = 'none' }}
               >
                 <Icon size={18} />
