@@ -1,16 +1,19 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Heart, MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 import type { Listing } from '@/lib/data'
 
 export default function ProductCard({ listing }: { listing: Listing }) {
   const [liked, setLiked] = useState(listing.liked)
+  const router = useRouter()
 
   return (
     <motion.div
       whileHover={{ y: -4 }}
+      onClick={() => router.push(`/listing/${listing.id}`)}
       style={{ background: '#FFFFFF', borderRadius: 12, overflow: 'hidden', boxShadow: '0 2px 8px rgba(44,26,14,.08)', cursor: 'pointer', transition: 'box-shadow .22s' }}
       onMouseOver={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 24px rgba(44,26,14,.14)' }}
       onMouseOut={e =>  { (e.currentTarget as HTMLElement).style.boxShadow = '0 2px 8px rgba(44,26,14,.08)' }}

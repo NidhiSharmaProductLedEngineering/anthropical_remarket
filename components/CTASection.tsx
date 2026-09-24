@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { Leaf, Users, ShieldCheck } from 'lucide-react'
 
 const features = [
@@ -10,6 +11,7 @@ const features = [
 ]
 
 export default function CTASection() {
+  const router = useRouter()
   return (
     <section style={{ background: '#3D2510', padding: '80px 24px', position: 'relative', overflow: 'hidden' }}>
       {/* Decorative circles */}
@@ -36,13 +38,15 @@ export default function CTASection() {
             <motion.button
               whileHover={{ background: '#F5F0EA' }}
               whileTap={{ scale: .97 }}
+              onClick={() => router.push('/sell')}
               style={{ padding: '14px 26px', background: '#FFFFFF', color: '#2C1A0E', border: 'none', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, transition: 'background .18s' }}
             >
-              Create Free Account →
+              Start Selling →
             </motion.button>
             <motion.button
               whileHover={{ borderColor: '#FFFFFF', color: '#FFFFFF' }}
               whileTap={{ scale: .97 }}
+              onClick={() => router.push('/browse')}
               style={{ padding: '14px 26px', background: 'transparent', color: '#C4A882', border: '1.5px solid rgba(196,168,130,.5)', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, cursor: 'pointer', transition: 'all .18s' }}
             >
               Browse First

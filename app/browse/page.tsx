@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Search, SlidersHorizontal, X, Sparkles } from 'lucide-react'
 import Navbar from '@/components/Navbar'
@@ -12,9 +13,10 @@ const CONDITIONS = ['All','Excellent','Very Good','Good']
 const SORT_OPTIONS = ['Newest','Price: Low to High','Price: High to Low','Most Popular']
 const SEARCH_DEBOUNCE_MS = 350
 
-export default function BrowsePage() {
+function BrowsePageInner() {
+  const searchParams = useSearchParams()
   const [search,    setSearch]    = useState('')
-  const [category,  setCategory]  = useState('all')
+  const [category,  setCategory]  = useState(searchParams.get('category') || 'all')
   const [condition, setCondition] = useState('All')
   const [sort,      setSort]      = useState('Newest')
   const [showFilters, setShowFilters] = useState(false)
@@ -208,5 +210,13 @@ export default function BrowsePage() {
       </main>
       <Footer />
     </>
+  )
+}
+
+export default function BrowsePage() {
+  return (
+    <Suspense fallback={null}>
+      <BrowsePageInner />
+    </Suspense>
   )
 }

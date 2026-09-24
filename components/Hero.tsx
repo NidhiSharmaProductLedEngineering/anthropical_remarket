@@ -20,7 +20,7 @@ export default function Hero() {
       {/* Background image — warm vintage flatlay */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img
-          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80&fit=crop"
+          src="https://images.unsplash.com/photo-1624192647570-1131acc12ccf?w=1600&q=80&fit=crop"
           alt=""
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />

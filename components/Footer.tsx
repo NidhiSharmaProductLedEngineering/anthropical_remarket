@@ -4,10 +4,29 @@ import Link from 'next/link'
 import { Instagram, Twitter, Facebook } from 'lucide-react'
 
 const cols = [
-  { title: 'Marketplace', links: ['Browse All','Categories','How It Works','Pricing'] },
-  { title: 'Company',     links: ['About Us','Careers','Press','Blog'] },
-  { title: 'Support',     links: ['Help Center','Safety Tips','Contact Us','FAQ'] },
-  { title: 'Legal',       links: ['Privacy Policy','Terms of Service','Cookie Policy'] },
+  { title: 'Marketplace', links: [
+    { label: 'Browse All',    href: '/browse' },
+    { label: 'Categories',    href: '/browse' },
+    { label: 'How It Works',  href: null },
+    { label: 'Pricing',       href: null },
+  ]},
+  { title: 'Company', links: [
+    { label: 'About Us', href: null },
+    { label: 'Careers',  href: null },
+    { label: 'Press',    href: null },
+    { label: 'Blog',     href: null },
+  ]},
+  { title: 'Support', links: [
+    { label: 'Help Center', href: null },
+    { label: 'Safety Tips', href: null },
+    { label: 'Contact Us',  href: null },
+    { label: 'FAQ',         href: null },
+  ]},
+  { title: 'Legal', links: [
+    { label: 'Privacy Policy',    href: null },
+    { label: 'Terms of Service',  href: null },
+    { label: 'Cookie Policy',     href: null },
+  ]},
 ]
 
 export default function Footer() {
@@ -27,10 +46,7 @@ export default function Footer() {
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
               {[Instagram, Twitter, Facebook].map((Icon, i) => (
-                <button key={i} style={{ width: 36, height: 36, borderRadius: '50%', border: '1.5px solid #D4C4B8', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#7A6055', transition: 'all .15s' }}
-                  onMouseOver={e => { (e.currentTarget as HTMLElement).style.borderColor = '#C4663A'; (e.currentTarget as HTMLElement).style.color = '#C4663A' }}
-                  onMouseOut={e =>  { (e.currentTarget as HTMLElement).style.borderColor = '#D4C4B8'; (e.currentTarget as HTMLElement).style.color = '#7A6055' }}
-                >
+                <button key={i} disabled title="Not linked yet" style={{ width: 36, height: 36, borderRadius: '50%', border: '1.5px solid #D4C4B8', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'not-allowed', color: '#7A6055', opacity: 0.45 }}>
                   <Icon size={16} />
                 </button>
               ))}
@@ -44,13 +60,17 @@ export default function Footer() {
                 {col.title}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {col.links.map(link => (
-                  <Link key={link} href="/" style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', textDecoration: 'none', transition: 'color .15s' }}
+                {col.links.map(link => link.href ? (
+                  <Link key={link.label} href={link.href} style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', textDecoration: 'none', transition: 'color .15s' }}
                     onMouseOver={e => { (e.currentTarget as HTMLElement).style.color = '#C4663A' }}
                     onMouseOut={e =>  { (e.currentTarget as HTMLElement).style.color = '#7A6055' }}
                   >
-                    {link}
+                    {link.label}
                   </Link>
+                ) : (
+                  <span key={link.label} title="Page not built yet" style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', opacity: 0.45, cursor: 'default' }}>
+                    {link.label}
+                  </span>
                 ))}
               </div>
             </div>

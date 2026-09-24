@@ -72,7 +72,7 @@ export const featuredListings: Listing[] = [
     category: 'Clothing',
     seller: 'LuxeResale',
     location: 'Dubai, UAE',
-    image: 'https://images.unsplash.com/photo-1558171813-1a5d1f28e07b?w=600&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1631663026562-1f55f0ecac3e?w=600&q=80&fit=crop',
     condition: 'Excellent',
     liked: false,
   },

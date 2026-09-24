@@ -1,8 +1,7 @@
 'use client'
 
-'use client'
-
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { Shirt, Gem, Watch, ShoppingBag, UtensilsCrossed } from 'lucide-react'
 import { categories } from '@/lib/data'
 
@@ -11,6 +10,7 @@ const ICONS: Record<string, React.ElementType> = {
 }
 
 export default function Categories() {
+  const router = useRouter()
   return (
     <section style={{ background: '#F0EBE3', padding: '80px 24px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
@@ -42,6 +42,8 @@ export default function Categories() {
                 viewport={{ once: true }}
                 transition={{ delay: i * .08 }}
                 whileHover={{ y: -4 }}
+                whileTap={{ scale: .97 }}
+                onClick={() => router.push(`/browse?category=${cat.id}`)}
                 className="lift"
                 style={{ background: '#FFFFFF', borderRadius: 16, padding: '28px 20px', textAlign: 'center', cursor: 'pointer', boxShadow: '0 2px 8px rgba(44,26,14,.06)', transition: 'all .22s' }}
               >
