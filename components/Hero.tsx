@@ -2,81 +2,77 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Sparkles } from 'lucide-react'
 
-const stagger = { hidden: {}, show: { transition: { staggerChildren: .12 } } }
-const up = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: .6, ease: [.22,1,.36,1] as const } } }
+const stagger = { hidden: {}, show: { transition: { staggerChildren: .14 } } }
+const up = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: .7, ease: [.22,1,.36,1] as const } } }
 
-const STATS = [
-  { value: '10K+', label: 'Active Sellers' },
-  { value: '50K+', label: 'Items Listed' },
-  { value: '95%',  label: 'Happy Buyers' },
+const PILLARS = [
+  { title: 'Authenticity First', note: 'Every piece verified' },
+  { title: 'Curated Sellers',    note: 'Vetted, never anonymous' },
+  { title: 'Discreet Delivery',  note: 'Insured, white-glove' },
 ]
 
 export default function Hero() {
   return (
-    <section style={{ position: 'relative', minHeight: 580, display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+    <section style={{ position: 'relative', minHeight: 640, display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#16110D' }}>
 
-      {/* Background image — warm vintage flatlay */}
+      {/* Background image with dark, warm overlay */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img
           src="https://images.unsplash.com/photo-1589363463135-e811e08d8ace?w=1600&q=80&fit=crop"
           alt=""
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: .55 }}
         />
-        {/* Fade overlay — left side opaque, right fades out */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(105deg, #F5F0EA 30%, rgba(245,240,234,.85) 55%, rgba(245,240,234,.3) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, #16110D 28%, rgba(22,17,13,.82) 55%, rgba(22,17,13,.35) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 15% 20%, rgba(184,146,90,.16), transparent 55%)' }} />
+        {/* Fine gold rule at the base */}
+        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 1, background: 'linear-gradient(90deg, transparent, #B8925A, transparent)' }} />
       </div>
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 1280, margin: '0 auto', padding: '80px 24px 60px', width: '100%' }}>
-        <motion.div variants={stagger} initial="hidden" animate="show" style={{ maxWidth: 560 }}>
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: 1280, margin: '0 auto', padding: '96px 24px 80px', width: '100%' }}>
+        <motion.div variants={stagger} initial="hidden" animate="show" style={{ maxWidth: 620 }}>
 
-          {/* Badge */}
-          <motion.div variants={up} style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '6px 14px', background: 'rgba(78,122,94,.12)', borderRadius: 20, marginBottom: 24 }}>
-            <Sparkles size={14} color="#4E7A5E" />
-            <span style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#4E7A5E', fontWeight: 500 }}>Sustainable shopping made beautiful</span>
+          <motion.div variants={up} className="eyebrow" style={{ color: '#D9C08F', marginBottom: 26, display: 'flex', alignItems: 'center', gap: 14 }}>
+            <span style={{ width: 36, height: 1, background: '#B8925A', display: 'inline-block' }} />
+            Authenticated · Curated · Pre-Owned
           </motion.div>
 
-          {/* Heading */}
-          <motion.h1 variants={up} style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(3rem,6vw,5rem)', lineHeight: 1.08, color: '#2C1A0E', marginBottom: 20 }}>
-            Discover<br />
-            <em style={{ color: '#C4663A', fontStyle: 'italic' }}>Pre-Loved</em><br />
-            Treasures
+          <motion.h1 variants={up} style={{ fontFamily: 'Cormorant Garamond, Playfair Display, serif', fontWeight: 500, fontSize: 'clamp(3.2rem,7vw,5.6rem)', lineHeight: 1.02, color: '#F8F4EC', marginBottom: 24, letterSpacing: '-0.01em' }}>
+            Timeless Luxury,<br />
+            <em className="gold-text" style={{ fontStyle: 'italic', fontWeight: 500 }}>Pre-Loved</em>,<br />
+            Perfectly Preserved.
           </motion.h1>
 
-          {/* Subtext */}
-          <motion.p variants={up} style={{ fontFamily: 'DM Sans', fontSize: 16, lineHeight: 1.75, color: '#7A6055', marginBottom: 32, maxWidth: 440 }}>
-            Join our community of treasure hunters. Buy and sell unique vintage clothing, jewelry, watches, and more — all with a story to tell.
+          <motion.p variants={up} style={{ fontFamily: 'DM Sans', fontSize: 16, lineHeight: 1.8, color: 'rgba(248,244,236,.72)', marginBottom: 38, maxWidth: 470, fontWeight: 300 }}>
+            A curated marketplace for authenticated designer handbags, fine jewellery, timepieces and couture — each piece with provenance, each seller vetted.
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div variants={up} style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <motion.div variants={up} style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link href="/browse">
               <motion.button
-                whileHover={{ background: '#A34E28' }}
+                whileHover={{ background: '#D9C08F' }}
                 whileTap={{ scale: .97 }}
-                style={{ padding: '14px 28px', background: '#C4663A', color: '#FFFFFF', border: 'none', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 15, fontWeight: 500, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8, transition: 'background .18s' }}
+                style={{ padding: '15px 32px', background: '#B8925A', color: '#16110D', border: 'none', borderRadius: 2, fontFamily: 'DM Sans', fontSize: 12, fontWeight: 500, letterSpacing: '.18em', textTransform: 'uppercase', cursor: 'pointer', transition: 'background .2s' }}
               >
-                Start Exploring →
+                Explore the Collection
               </motion.button>
             </Link>
             <Link href="/sell">
               <motion.button
-                whileHover={{ background: '#F5DDD3' }}
+                whileHover={{ background: 'rgba(184,146,90,.14)' }}
                 whileTap={{ scale: .97 }}
-                style={{ padding: '14px 28px', background: 'transparent', color: '#2C1A0E', border: '1.5px solid #2C1A0E', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 15, fontWeight: 500, cursor: 'pointer', transition: 'background .18s' }}
+                style={{ padding: '15px 32px', background: 'transparent', color: '#F8F4EC', border: '1px solid rgba(217,192,143,.6)', borderRadius: 2, fontFamily: 'DM Sans', fontSize: 12, fontWeight: 500, letterSpacing: '.18em', textTransform: 'uppercase', cursor: 'pointer', transition: 'background .2s' }}
               >
-                Sell Your Items
+                Consign a Piece
               </motion.button>
             </Link>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div variants={up} style={{ display: 'flex', gap: 40, marginTop: 40 }}>
-            {STATS.map(s => (
-              <div key={s.label}>
-                <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 26, fontWeight: 700, color: '#2C1A0E' }}>{s.value}</div>
-                <div style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', marginTop: 2 }}>{s.label}</div>
+          <motion.div variants={up} style={{ display: 'flex', gap: 44, marginTop: 56, paddingTop: 28, borderTop: '1px solid rgba(217,192,143,.25)', flexWrap: 'wrap' }}>
+            {PILLARS.map(p => (
+              <div key={p.title}>
+                <div style={{ fontFamily: 'Cormorant Garamond, Playfair Display, serif', fontSize: 20, color: '#D9C08F', fontWeight: 500 }}>{p.title}</div>
+                <div style={{ fontFamily: 'DM Sans', fontSize: 12, color: 'rgba(248,244,236,.55)', marginTop: 3, letterSpacing: '.04em' }}>{p.note}</div>
               </div>
             ))}
           </motion.div>

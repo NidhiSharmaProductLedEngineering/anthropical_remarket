@@ -42,8 +42,8 @@ export default function ListingDetailPage() {
       <>
         <Navbar />
         <main style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16, padding: 24 }}>
-          <p style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, color: '#2C1A0E' }}>Listing not found</p>
-          <button onClick={() => router.push('/browse')} style={{ padding: '10px 20px', background: '#C4663A', color: '#fff', border: 'none', borderRadius: 8, fontFamily: 'DM Sans', fontSize: 14, cursor: 'pointer' }}>
+          <p style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, color: '#16110D' }}>Listing not found</p>
+          <button onClick={() => router.push('/browse')} style={{ padding: '10px 20px', background: '#B8925A', color: '#fff', border: 'none', borderRadius: 8, fontFamily: 'DM Sans', fontSize: 14, cursor: 'pointer' }}>
             Back to Browse
           </button>
         </main>
@@ -60,7 +60,7 @@ export default function ListingDetailPage() {
       <main style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px 64px' }}>
         <button
           onClick={() => router.back()}
-          style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', color: '#7A6055', fontFamily: 'DM Sans', fontSize: 13, marginBottom: 24, padding: 0 }}
+          style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', color: '#7A6B5C', fontFamily: 'DM Sans', fontSize: 13, marginBottom: 24, padding: 0 }}
         >
           <ArrowLeft size={15} /> Back
         </button>
@@ -71,7 +71,7 @@ export default function ListingDetailPage() {
           style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}
         >
           {/* Image */}
-          <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', background: '#F5F0EA', paddingBottom: '90%' }}>
+          <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', background: '#F8F4EC', paddingBottom: '90%' }}>
             <img
               src={listing.image}
               alt={listing.title}
@@ -81,30 +81,30 @@ export default function ListingDetailPage() {
               onClick={() => setLiked(l => !l)}
               style={{ position: 'absolute', top: 14, right: 14, width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,.92)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
-              <Heart size={17} fill={liked ? '#C4663A' : 'none'} color={liked ? '#C4663A' : '#7A6055'} />
+              <Heart size={17} fill={liked ? '#B8925A' : 'none'} color={liked ? '#B8925A' : '#7A6B5C'} />
             </button>
           </div>
 
           {/* Details */}
           <div>
-            <div style={{ fontFamily: 'DM Sans', fontSize: 12, fontWeight: 500, color: '#C4663A', background: '#F5DDD3', display: 'inline-block', padding: '4px 12px', borderRadius: 20, marginBottom: 16 }}>
+            <div style={{ fontFamily: 'DM Sans', fontSize: 12, fontWeight: 500, color: '#B8925A', background: '#EFE5D2', display: 'inline-block', padding: '4px 12px', borderRadius: 20, marginBottom: 16 }}>
               {listing.category}
             </div>
-            <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 32, fontWeight: 700, color: '#2C1A0E', marginBottom: 12, lineHeight: 1.2 }}>
+            <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 32, fontWeight: 700, color: '#16110D', marginBottom: 12, lineHeight: 1.2 }}>
               {listing.title}
             </h1>
-            <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, fontWeight: 700, color: '#2C1A0E', marginBottom: 24 }}>
+            <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, fontWeight: 700, color: '#16110D', marginBottom: 24 }}>
               {listing.currency} {listing.price.toLocaleString()}
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28, paddingBottom: 28, borderBottom: '1px solid #EDE8E2' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'DM Sans', fontSize: 14, color: '#4A3628' }}>
-                <MapPin size={15} color="#7A6055" /> {listing.location}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28, paddingBottom: 28, borderBottom: '1px solid #E9E1D3' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'DM Sans', fontSize: 14, color: '#3A2F26' }}>
+                <MapPin size={15} color="#7A6B5C" /> {listing.location}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'DM Sans', fontSize: 14, color: '#4A3628' }}>
-                <ShieldCheck size={15} color="#7A6055" /> Condition: {listing.condition}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'DM Sans', fontSize: 14, color: '#3A2F26' }}>
+                <ShieldCheck size={15} color="#7A6B5C" /> Condition: {listing.condition}
               </div>
-              <div style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#4A3628' }}>
+              <div style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#3A2F26' }}>
                 Sold by <strong>{listing.seller}</strong>
               </div>
             </div>
@@ -119,7 +119,7 @@ export default function ListingDetailPage() {
               </button>
               <button
                 onClick={() => router.push('/browse')}
-                style={{ padding: '14px 24px', background: 'transparent', color: '#2C1A0E', border: '1.5px solid #EDE8E2', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, cursor: 'pointer' }}
+                style={{ padding: '14px 24px', background: 'transparent', color: '#16110D', border: '1.5px solid #E9E1D3', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, cursor: 'pointer' }}
               >
                 Keep Browsing
               </button>

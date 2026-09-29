@@ -34,14 +34,14 @@ export default function SellPage() {
     return (
       <>
         <Navbar />
-        <main style={{ background: '#F5F0EA', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <main style={{ background: '#F8F4EC', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <motion.div initial={{ opacity: 0, scale: .9 }} animate={{ opacity: 1, scale: 1 }} style={{ background: '#FFFFFF', borderRadius: 16, padding: '56px 48px', textAlign: 'center', maxWidth: 420 }}>
-            <CheckCircle size={56} color="#4E7A5E" style={{ margin: '0 auto 20px' }} />
-            <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 26, color: '#2C1A0E', marginBottom: 12 }}>Listing Created!</h2>
-            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6055', lineHeight: 1.65, marginBottom: 24 }}>
-              Your item is now live on ReMarket. Our community will discover your treasure soon.
+            <CheckCircle size={56} color="#B8925A" style={{ margin: '0 auto 20px' }} />
+            <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 26, color: '#16110D', marginBottom: 12 }}>Listing Created!</h2>
+            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6B5C', lineHeight: 1.65, marginBottom: 24 }}>
+              Your item is now live on ReMarket. Discerning buyers will discover your piece soon.
             </p>
-            <button onClick={() => setSubmitted(false)} style={{ padding: '12px 28px', background: '#C4663A', color: '#FFFFFF', border: 'none', borderRadius: 9, fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, cursor: 'pointer' }}>
+            <button onClick={() => setSubmitted(false)} style={{ padding: '12px 28px', background: '#B8925A', color: '#FFFFFF', border: 'none', borderRadius: 9, fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, cursor: 'pointer' }}>
               List Another Item
             </button>
           </motion.div>
@@ -51,34 +51,34 @@ export default function SellPage() {
     )
   }
 
-  const inputStyle: React.CSSProperties = { width: '100%', padding: '11px 14px', border: '1.5px solid #EDE8E2', borderRadius: 9, background: '#FAFAF8', fontFamily: 'DM Sans', fontSize: 14, color: '#2C1A0E', outline: 'none', transition: 'border-color .15s' }
-  const labelStyle: React.CSSProperties = { fontFamily: 'DM Sans', fontSize: 13, fontWeight: 500, color: '#2C1A0E', display: 'block', marginBottom: 6 }
+  const inputStyle: React.CSSProperties = { width: '100%', padding: '11px 14px', border: '1.5px solid #E9E1D3', borderRadius: 9, background: '#FAFAF8', fontFamily: 'DM Sans', fontSize: 14, color: '#16110D', outline: 'none', transition: 'border-color .15s' }
+  const labelStyle: React.CSSProperties = { fontFamily: 'DM Sans', fontSize: 13, fontWeight: 500, color: '#16110D', display: 'block', marginBottom: 6 }
 
   return (
     <>
       <Navbar />
-      <main style={{ background: '#F5F0EA', minHeight: '100vh', padding: '40px 24px' }}>
+      <main style={{ background: '#F8F4EC', minHeight: '100vh', padding: '40px 24px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 32 }}>
-            <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 32, fontWeight: 700, color: '#2C1A0E', marginBottom: 8 }}>Sell Your Item</h1>
-            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6055' }}>List your pre-loved treasure and reach thousands of buyers across the UAE</p>
+            <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 32, fontWeight: 700, color: '#16110D', marginBottom: 8 }}>Sell Your Item</h1>
+            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6B5C' }}>List your pre-loved luxury piece and reach discerning buyers across the UAE</p>
           </motion.div>
 
           <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1 }}
-            style={{ background: '#FFFFFF', borderRadius: 16, padding: '32px', boxShadow: '0 2px 12px rgba(44,26,14,.07)', display: 'flex', flexDirection: 'column', gap: 22 }}
+            style={{ background: '#FFFFFF', borderRadius: 16, padding: '32px', boxShadow: '0 2px 12px rgba(22,17,13,.07)', display: 'flex', flexDirection: 'column', gap: 22 }}
           >
 
             {/* Photo upload */}
             <div>
               <label style={labelStyle}>Photos</label>
               <div style={{ border: '2px dashed #D4C4B8', borderRadius: 12, padding: '36px 24px', textAlign: 'center', cursor: 'pointer', background: '#FDF9F7', transition: 'border-color .15s' }}
-                onMouseOver={e => { (e.currentTarget as HTMLElement).style.borderColor = '#C4663A' }}
+                onMouseOver={e => { (e.currentTarget as HTMLElement).style.borderColor = '#B8925A' }}
                 onMouseOut={e =>  { (e.currentTarget as HTMLElement).style.borderColor = '#D4C4B8' }}
               >
-                <Upload size={28} color="#C4663A" style={{ margin: '0 auto 10px' }} />
-                <div style={{ fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, color: '#2C1A0E', marginBottom: 4 }}>Click to upload photos</div>
-                <div style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6055' }}>PNG, JPG up to 10MB each · Add up to 8 photos</div>
+                <Upload size={28} color="#B8925A" style={{ margin: '0 auto 10px' }} />
+                <div style={{ fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, color: '#16110D', marginBottom: 4 }}>Click to upload photos</div>
+                <div style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6B5C' }}>PNG, JPG up to 10MB each · Add up to 8 photos</div>
               </div>
             </div>
 
@@ -123,7 +123,7 @@ export default function SellPage() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
                 <label style={{ ...labelStyle, marginBottom: 0 }}>Description</label>
                 <button type="button" onClick={generateDesc} disabled={!form.title || !form.category || generating}
-                  style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '5px 12px', background: generating ? '#F5DDD3' : '#F5DDD3', border: 'none', borderRadius: 6, fontFamily: 'DM Sans', fontSize: 12, color: '#C4663A', fontWeight: 500, cursor: form.title && form.category ? 'pointer' : 'not-allowed', opacity: form.title && form.category ? 1 : .5 }}
+                  style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '5px 12px', background: generating ? '#EFE5D2' : '#EFE5D2', border: 'none', borderRadius: 6, fontFamily: 'DM Sans', fontSize: 12, color: '#B8925A', fontWeight: 500, cursor: form.title && form.category ? 'pointer' : 'not-allowed', opacity: form.title && form.category ? 1 : .5 }}
                 >
                   <Sparkles size={13} /> {generating ? 'Generating…' : 'AI Write'}
                 </button>
@@ -134,14 +134,14 @@ export default function SellPage() {
             {/* Submit */}
             <motion.button
               type="submit"
-              whileHover={{ background: '#A34E28' }}
+              whileHover={{ background: '#8E6F3E' }}
               whileTap={{ scale: .98 }}
-              style={{ padding: '14px', background: '#C4663A', color: '#FFFFFF', border: 'none', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 15, fontWeight: 500, cursor: 'pointer', transition: 'background .18s' }}
+              style={{ padding: '14px', background: '#B8925A', color: '#FFFFFF', border: 'none', borderRadius: 10, fontFamily: 'DM Sans', fontSize: 15, fontWeight: 500, cursor: 'pointer', transition: 'background .18s' }}
             >
               Publish Listing →
             </motion.button>
 
-            <p style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6055', textAlign: 'center' }}>
+            <p style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6B5C', textAlign: 'center' }}>
               By listing, you agree to our Terms of Service. ReMarket takes a 5% commission on successful sales.
             </p>
           </motion.form>

@@ -101,32 +101,32 @@ function BrowsePageInner() {
   return (
     <>
       <Navbar />
-      <main style={{ background: '#F5F0EA', minHeight: '100vh' }}>
+      <main style={{ background: '#F8F4EC', minHeight: '100vh' }}>
 
         {/* Page header */}
-        <div style={{ background: '#FFFFFF', borderBottom: '1px solid #EDE8E2', padding: '28px 24px' }}>
+        <div style={{ background: '#FFFFFF', borderBottom: '1px solid #E9E1D3', padding: '28px 24px' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, fontWeight: 700, color: '#2C1A0E', marginBottom: 4 }}>Browse Listings</h1>
-            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6055' }}>{filtered.length} treasures available</p>
+            <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 28, fontWeight: 700, color: '#16110D', marginBottom: 4 }}>Browse Listings</h1>
+            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6B5C' }}>{filtered.length} pieces available</p>
           </div>
         </div>
 
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '28px 24px', display: 'grid', gridTemplateColumns: '240px 1fr', gap: 28, alignItems: 'start' }}>
 
           {/* Sidebar filters */}
-          <div style={{ background: '#FFFFFF', borderRadius: 12, padding: '22px', boxShadow: '0 2px 8px rgba(44,26,14,.06)', position: 'sticky', top: 88 }}>
-            <div style={{ fontFamily: 'DM Sans', fontSize: 14, fontWeight: 600, color: '#2C1A0E', marginBottom: 18, display: 'flex', alignItems: 'center', gap: 6 }}>
-              <SlidersHorizontal size={16} color="#C4663A" />
+          <div style={{ background: '#FFFFFF', borderRadius: 12, padding: '22px', boxShadow: '0 2px 8px rgba(22,17,13,.06)', position: 'sticky', top: 88 }}>
+            <div style={{ fontFamily: 'DM Sans', fontSize: 14, fontWeight: 600, color: '#16110D', marginBottom: 18, display: 'flex', alignItems: 'center', gap: 6 }}>
+              <SlidersHorizontal size={16} color="#B8925A" />
               Filters
             </div>
 
             {/* Category */}
             <div style={{ marginBottom: 24 }}>
-              <div style={{ fontFamily: 'DM Sans', fontSize: 12, fontWeight: 600, color: '#7A6055', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 10 }}>Category</div>
+              <div style={{ fontFamily: 'DM Sans', fontSize: 12, fontWeight: 600, color: '#7A6B5C', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 10 }}>Category</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                 {[{ id: 'all', name: 'All Categories' }, ...categories].map(cat => (
                   <button key={cat.id} onClick={() => setCategory(cat.id)}
-                    style={{ textAlign: 'left', padding: '7px 10px', borderRadius: 7, border: 'none', background: category === cat.id ? '#F5DDD3' : 'transparent', color: category === cat.id ? '#C4663A' : '#2C1A0E', fontFamily: 'DM Sans', fontSize: 13, cursor: 'pointer', transition: 'all .15s', fontWeight: category === cat.id ? 500 : 400 }}
+                    style={{ textAlign: 'left', padding: '7px 10px', borderRadius: 7, border: 'none', background: category === cat.id ? '#EFE5D2' : 'transparent', color: category === cat.id ? '#B8925A' : '#16110D', fontFamily: 'DM Sans', fontSize: 13, cursor: 'pointer', transition: 'all .15s', fontWeight: category === cat.id ? 500 : 400 }}
                   >
                     {cat.name}
                   </button>
@@ -136,11 +136,11 @@ function BrowsePageInner() {
 
             {/* Condition */}
             <div style={{ marginBottom: 24 }}>
-              <div style={{ fontFamily: 'DM Sans', fontSize: 12, fontWeight: 600, color: '#7A6055', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 10 }}>Condition</div>
+              <div style={{ fontFamily: 'DM Sans', fontSize: 12, fontWeight: 600, color: '#7A6B5C', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 10 }}>Condition</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                 {CONDITIONS.map(c => (
                   <button key={c} onClick={() => setCondition(c)}
-                    style={{ textAlign: 'left', padding: '7px 10px', borderRadius: 7, border: 'none', background: condition === c ? '#F5DDD3' : 'transparent', color: condition === c ? '#C4663A' : '#2C1A0E', fontFamily: 'DM Sans', fontSize: 13, cursor: 'pointer', transition: 'all .15s', fontWeight: condition === c ? 500 : 400 }}
+                    style={{ textAlign: 'left', padding: '7px 10px', borderRadius: 7, border: 'none', background: condition === c ? '#EFE5D2' : 'transparent', color: condition === c ? '#B8925A' : '#16110D', fontFamily: 'DM Sans', fontSize: 13, cursor: 'pointer', transition: 'all .15s', fontWeight: condition === c ? 500 : 400 }}
                   >
                     {c}
                   </button>
@@ -152,7 +152,7 @@ function BrowsePageInner() {
             {(category !== 'all' || condition !== 'All' || search) && (
               <button
                 onClick={() => { setCategory('all'); setCondition('All'); setSearch('') }}
-                style={{ width: '100%', padding: '9px', border: '1px solid #EDE8E2', borderRadius: 8, background: 'transparent', fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}
+                style={{ width: '100%', padding: '9px', border: '1px solid #E9E1D3', borderRadius: 8, background: 'transparent', fontFamily: 'DM Sans', fontSize: 13, color: '#7A6B5C', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}
               >
                 <X size={13} /> Clear filters
               </button>
@@ -164,23 +164,23 @@ function BrowsePageInner() {
             {/* Search + sort bar */}
             <div style={{ display: 'flex', gap: 12, marginBottom: 24, alignItems: 'center', flexWrap: 'wrap' }}>
               <div style={{ flex: 1, minWidth: 220, position: 'relative' }}>
-                <Search size={16} color="#7A6055" style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)' }} />
+                <Search size={16} color="#7A6B5C" style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)' }} />
                 <input
                   type="text"
-                  placeholder="Try 'elegant vintage jewelry' or 'something for a formal event'..."
+                  placeholder="Try 'classic leather handbag' or 'gift for a special occasion'..."
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  style={{ width: '100%', padding: '10px 96px 10px 38px', border: '1.5px solid #EDE8E2', borderRadius: 9, background: '#FFFFFF', fontFamily: 'DM Sans', fontSize: 13, color: '#2C1A0E', outline: 'none' }}
+                  style={{ width: '100%', padding: '10px 96px 10px 38px', border: '1.5px solid #E9E1D3', borderRadius: 9, background: '#FFFFFF', fontFamily: 'DM Sans', fontSize: 13, color: '#16110D', outline: 'none' }}
                 />
                 {(semanticLoading || usingSemantic) && (
-                  <div style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px', borderRadius: 20, background: usingSemantic ? '#F5DDD3' : 'transparent', fontFamily: 'DM Sans', fontSize: 11, fontWeight: 500, color: '#C4663A' }}>
+                  <div style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', gap: 4, padding: '3px 8px', borderRadius: 20, background: usingSemantic ? '#EFE5D2' : 'transparent', fontFamily: 'DM Sans', fontSize: 11, fontWeight: 500, color: '#B8925A' }}>
                     <Sparkles size={12} />
                     {semanticLoading ? 'Thinking...' : 'AI search'}
                   </div>
                 )}
               </div>
               <select value={sort} onChange={e => setSort(e.target.value)}
-                style={{ padding: '10px 14px', border: '1.5px solid #EDE8E2', borderRadius: 9, background: '#FFFFFF', fontFamily: 'DM Sans', fontSize: 13, color: '#2C1A0E', cursor: 'pointer', outline: 'none' }}
+                style={{ padding: '10px 14px', border: '1.5px solid #E9E1D3', borderRadius: 9, background: '#FFFFFF', fontFamily: 'DM Sans', fontSize: 13, color: '#16110D', cursor: 'pointer', outline: 'none' }}
               >
                 {SORT_OPTIONS.map(o => <option key={o}>{o}</option>)}
               </select>
@@ -188,8 +188,8 @@ function BrowsePageInner() {
 
             {/* Grid */}
             {filtered.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '60px 0', fontFamily: 'DM Sans', fontSize: 15, color: '#7A6055' }}>
-                No treasures found. Try adjusting your filters.
+              <div style={{ textAlign: 'center', padding: '60px 0', fontFamily: 'DM Sans', fontSize: 15, color: '#7A6B5C' }}>
+                No pieces found. Try adjusting your filters.
               </div>
             ) : (
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }}>
