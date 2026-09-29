@@ -21,7 +21,7 @@ export default function FeaturedFinds() {
               Featured Finds
             </h2>
             <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6B5C' }}>
-              Hand-selected pieces from our vetted community of sellers
+              Recently listed by sellers in the community
             </p>
           </motion.div>
 

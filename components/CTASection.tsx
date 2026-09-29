@@ -6,8 +6,8 @@ import { Leaf, Users, ShieldCheck } from 'lucide-react'
 
 const features = [
   { icon: Leaf,        title: 'Sustainable',  desc: 'Give exceptional pieces a second life' },
-  { icon: Users,       title: 'Community',    desc: 'Join a discerning community of collectors' },
-  { icon: ShieldCheck, title: 'Secure',       desc: 'Protected transactions, verified sellers' },
+  { icon: Users,       title: 'Community',    desc: 'Buyers and sellers, connected directly' },
+  { icon: ShieldCheck, title: 'Your Terms',    desc: 'You message, meet, and deal — we just connect you' },
 ]
 
 export default function CTASection() {

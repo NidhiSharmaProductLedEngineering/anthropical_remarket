@@ -39,7 +39,7 @@ export default function SellPage() {
             <CheckCircle size={56} color="#B8925A" style={{ margin: '0 auto 20px' }} />
             <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 26, color: '#16110D', marginBottom: 12 }}>Listing Created!</h2>
             <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6B5C', lineHeight: 1.65, marginBottom: 24 }}>
-              Your item is now live on ReMarket. Discerning buyers will discover your piece soon.
+              Your item is now live on ReMarket. Buyers can find it and message you directly.
             </p>
             <button onClick={() => setSubmitted(false)} style={{ padding: '12px 28px', background: '#B8925A', color: '#FFFFFF', border: 'none', borderRadius: 9, fontFamily: 'DM Sans', fontSize: 14, fontWeight: 500, cursor: 'pointer' }}>
               List Another Item
@@ -62,7 +62,7 @@ export default function SellPage() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: 32 }}>
             <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 32, fontWeight: 700, color: '#16110D', marginBottom: 8 }}>Sell Your Item</h1>
-            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6B5C' }}>List your pre-loved luxury piece and reach discerning buyers across the UAE</p>
+            <p style={{ fontFamily: 'DM Sans', fontSize: 14, color: '#7A6B5C' }}>List your pre-loved luxury piece and connect directly with buyers across the UAE</p>
           </motion.div>
 
           <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1 }}

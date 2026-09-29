@@ -42,7 +42,7 @@ export default function Footer() {
               <span style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: '#B8925A', fontStyle: 'italic' }}>Market</span>
             </div>
             <p style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6B5C', lineHeight: 1.65, marginBottom: 20, maxWidth: 220 }}>
-              Authenticated pre-loved luxury — designer handbags, fine jewellery, timepieces and couture.
+              A marketplace for pre-loved luxury — designer handbags, fine jewellery, timepieces and couture. List it, message about it, meet up, done.
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
               {[Instagram, Twitter, Facebook].map((Icon, i) => (

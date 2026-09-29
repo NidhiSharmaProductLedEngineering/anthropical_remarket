@@ -7,9 +7,9 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: .14 } } }
 const up = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: .7, ease: [.22,1,.36,1] as const } } }
 
 const PILLARS = [
-  { title: 'Authenticity First', note: 'Every piece verified' },
-  { title: 'Curated Sellers',    note: 'Vetted, never anonymous' },
-  { title: 'Discreet Delivery',  note: 'Insured, white-glove' },
+  { title: 'Free to List',      note: 'No fees to post an item' },
+  { title: 'Message Sellers',   note: 'Chat directly, no middleman' },
+  { title: 'Meet Locally',      note: 'Arrange the exchange yourselves' },
 ]
 
 export default function Hero() {
@@ -34,7 +34,7 @@ export default function Hero() {
 
           <motion.div variants={up} className="eyebrow" style={{ color: '#D9C08F', marginBottom: 26, display: 'flex', alignItems: 'center', gap: 14 }}>
             <span style={{ width: 36, height: 1, background: '#B8925A', display: 'inline-block' }} />
-            Authenticated · Curated · Pre-Owned
+            Buy & Sell Directly · Pre-Loved Luxury
           </motion.div>
 
           <motion.h1 variants={up} style={{ fontFamily: 'Cormorant Garamond, Playfair Display, serif', fontWeight: 500, fontSize: 'clamp(3.2rem,7vw,5.6rem)', lineHeight: 1.02, color: '#F8F4EC', marginBottom: 24, letterSpacing: '-0.01em' }}>
@@ -44,7 +44,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p variants={up} style={{ fontFamily: 'DM Sans', fontSize: 16, lineHeight: 1.8, color: 'rgba(248,244,236,.72)', marginBottom: 38, maxWidth: 470, fontWeight: 300 }}>
-            A curated marketplace for authenticated designer handbags, fine jewellery, timepieces and couture — each piece with provenance, each seller vetted.
+            A marketplace for pre-loved designer handbags, fine jewellery, timepieces and couture — list your own, message sellers directly, and arrange the exchange between yourselves.
           </motion.p>
 
           <motion.div variants={up} style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>

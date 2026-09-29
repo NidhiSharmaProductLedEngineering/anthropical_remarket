@@ -26,7 +26,7 @@ export default function Categories() {
             Browse by Category
           </h2>
           <p style={{ fontFamily: 'DM Sans', fontSize: 15, color: '#7A6B5C', lineHeight: 1.6, maxWidth: 480, margin: '0 auto' }}>
-            A curated collection of pre-loved luxury across five distinguished categories
+            Browse pre-loved luxury by category — listed by sellers like you
           </p>
         </motion.div>
 
