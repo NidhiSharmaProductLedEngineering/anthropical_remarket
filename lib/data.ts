@@ -5,6 +5,7 @@ export interface Listing {
   currency: string
   category: string
   seller: string
+  sellerId?: number | null
   location: string
   image: string
   condition: string

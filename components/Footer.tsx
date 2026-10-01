@@ -31,22 +31,22 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#F5F0EA', borderTop: '1px solid #EDE8E2', padding: '56px 24px 32px' }}>
+    <footer style={{ background: '#F8F4EC', borderTop: '1px solid #E9E1D3', padding: '56px 24px 32px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.6fr repeat(4,1fr)', gap: 40, marginBottom: 48 }}>
+        <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.6fr repeat(4,1fr)', gap: 32, marginBottom: 40 }}>
 
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 1, marginBottom: 12 }}>
-              <span style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: '#2C1A0E' }}>Re</span>
-              <span style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: '#C4663A', fontStyle: 'italic' }}>Market</span>
+              <span style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: '#16110D' }}>Re</span>
+              <span style={{ fontFamily: 'Playfair Display, serif', fontSize: 22, fontWeight: 700, color: '#B8925A', fontStyle: 'italic' }}>Market</span>
             </div>
-            <p style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', lineHeight: 1.65, marginBottom: 20, maxWidth: 220 }}>
+            <p style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6B5C', lineHeight: 1.65, marginBottom: 20, maxWidth: 220 }}>
               Your destination for unique pre-loved treasures. Shop sustainably, sell easily.
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
               {[Instagram, Twitter, Facebook].map((Icon, i) => (
-                <button key={i} disabled title="Not linked yet" style={{ width: 36, height: 36, borderRadius: '50%', border: '1.5px solid #D4C4B8', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'not-allowed', color: '#7A6055', opacity: 0.45 }}>
+                <button key={i} disabled title="Not linked yet" style={{ width: 36, height: 36, borderRadius: '50%', border: '1.5px solid #D4C4B8', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'not-allowed', color: '#7A6B5C', opacity: 0.45 }}>
                   <Icon size={16} />
                 </button>
               ))}
@@ -56,19 +56,19 @@ export default function Footer() {
           {/* Link cols */}
           {cols.map(col => (
             <div key={col.title}>
-              <div style={{ fontFamily: 'DM Sans', fontSize: 13, fontWeight: 600, color: '#2C1A0E', marginBottom: 14, letterSpacing: '.01em' }}>
+              <div style={{ fontFamily: 'DM Sans', fontSize: 13, fontWeight: 600, color: '#16110D', marginBottom: 14, letterSpacing: '.01em' }}>
                 {col.title}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {col.links.map(link => link.href ? (
-                  <Link key={link.label} href={link.href} style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', textDecoration: 'none', transition: 'color .15s' }}
-                    onMouseOver={e => { (e.currentTarget as HTMLElement).style.color = '#C4663A' }}
-                    onMouseOut={e =>  { (e.currentTarget as HTMLElement).style.color = '#7A6055' }}
+                  <Link key={link.label} href={link.href} style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6B5C', textDecoration: 'none', transition: 'color .15s' }}
+                    onMouseOver={e => { (e.currentTarget as HTMLElement).style.color = '#B8925A' }}
+                    onMouseOut={e =>  { (e.currentTarget as HTMLElement).style.color = '#7A6B5C' }}
                   >
                     {link.label}
                   </Link>
                 ) : (
-                  <span key={link.label} title="Page not built yet" style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6055', opacity: 0.45, cursor: 'default' }}>
+                  <span key={link.label} title="Page not built yet" style={{ fontFamily: 'DM Sans', fontSize: 13, color: '#7A6B5C', opacity: 0.45, cursor: 'default' }}>
                     {link.label}
                   </span>
                 ))}
@@ -78,9 +78,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ borderTop: '1px solid #EDE8E2', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <span style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6055' }}>© 2025 ReMarket. All rights reserved.</span>
-          <span style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6055' }}>Built by Nidhi Sharma · UAE</span>
+        <div style={{ borderTop: '1px solid #E9E1D3', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+          <span style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6B5C' }}>© 2025 ReMarket. All rights reserved.</span>
+          <span style={{ fontFamily: 'DM Sans', fontSize: 12, color: '#7A6B5C' }}>Built by Nidhi Sharma · UAE</span>
         </div>
       </div>
     </footer>
